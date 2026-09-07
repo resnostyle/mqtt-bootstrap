@@ -1,0 +1,16 @@
+# Example sidecar next to Home Assistant / Mosquitto.
+# Copy env from .env.example.
+
+services:
+  service:
+    image: ghcr.io/resnostyle/mqtt-bootstrap:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    #   args:
+    #     SERVICE: service
+    #     RUNTIME: distroless
+    container_name: mqtt-bootstrap
+    restart: unless-stopped
+    env_file:
+      - .env
