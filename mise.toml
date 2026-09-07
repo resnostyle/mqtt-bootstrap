@@ -1,0 +1,15 @@
+[tools]
+go = "1.24"
+
+[env]
+_.path = ["{{config_root}}/bin"]
+
+[tasks.test]
+run = "go test ./..."
+
+[tasks.service]
+run = "go run ./cmd/service"
+env = { _.file = ".env" }
+
+[tasks.build]
+run = "go build -o bin/service ./cmd/service"
